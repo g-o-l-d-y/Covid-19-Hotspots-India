@@ -25,7 +25,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def home():
-  my_url = "https://news.google.com/covid19/map?hl=en-IN&mid=%2Fm%2F03rk0&gl=IN&ceid=IN%3Aen"
+    my_url = "https://news.google.com/covid19/map?hl=en-IN&mid=%2Fm%2F03rk0&gl=IN&ceid=IN%3Aen"
     
     uClient = uReq(my_url)
     page_html = uClient.read()
