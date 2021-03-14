@@ -69,5 +69,33 @@ def option():
 def content():
     return render_template("content.html")
 
+@app.route("/map")
+def myMap():
+    return render_template("map.html")
+
+@app.route("/restriction")
+def restriction():
+    global state,content,image
+    my_url = "https://www.goibibo.com/info/statewise-covid-guidelines/"
+
+    uClient = uReq(my_url)
+    page_html = uClient.read()
+    uClient.close()
+    page_soup = soup(page_html, "html.parser")
+    
+    containers = page_soup.findAll("p", {"class": "state-head pad-t-6"})
+    state=[containers[i].text for i in range(0,len(containers))]
+    
+    containers = page_soup.findAll("p", {"class": "state-sub-txt"})
+    content = [containers[i].text for i in range(0,len(containers))]
+    
+    containers = page_soup.findAll("div", {"class": "state-img"})
+    image = [containers[i].img["src"] for i in range(0,len(containers))] 
+    
+    for i in range(0,len(state)):
+        d[state[i]]=[content[i],image[i]]
+    
+    return render_template("restriction.html",info=d)
+
 if __name__ == '__main__':
     app.run()
