@@ -1,0 +1,32 @@
+<html>
+  <head>
+      <style>
+        body
+        {
+           background-image: url("{{url_for('static', filename='bgimg.jpg')}}");
+        }
+        
+        a:link, a:visited {
+        background-color: white;
+        color: black;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 30px;
+      }
+
+      a:hover, a:active {
+        background-color: rgb(248, 174, 186);
+        border-radius: 30px;
+        box-shadow:rgb(221, 196, 200)
+      }
+      </style>
+  </head>
+  <body>
+    <center>
+      <a href="/map" target="frame2">Hotspots</a><br><br>
+      <a href="/restriction" target="frame2">Statewise Quarantine Rules</a><br><br>
+    </center>
+  </body>
+</html>
