@@ -16,6 +16,10 @@ warnings.filterwarnings('ignore')
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen as uReq
 
+state=[]
+content=[]
+image=[]
+d={}
 
 app=Flask(__name__)
 
