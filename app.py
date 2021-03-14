@@ -61,5 +61,13 @@ def home():
     myMap.save('templates/map.html')
     return render_template("home.html")
 
+@app.route("/option")
+def option():
+    return render_template("option.html")
+
+@app.route("/content")
+def content():
+    return render_template("content.html")
+
 if __name__ == '__main__':
     app.run()
