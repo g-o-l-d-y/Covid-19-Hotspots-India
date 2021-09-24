@@ -55,7 +55,8 @@ def home():
     
     myMap = folium.Map(location=[20, 70], zoom_start=4,tiles='Stamenterrain')
     for i in range(0,len(state)):
-        folium.CircleMarker(d[state[i]], popup = ('<strong>State</strong>: ' + state[i] + '<br>''<strong>Total Cases</strong>: ' + str(total_case[i]) + '<br>'),color='red',fill_color='red' ).add_to(myMap)
+        if state[i] in d:
+            folium.CircleMarker(d[state[i]], popup = ('<strong>State</strong>: ' + state[i] + '<br>''<strong>Total Cases</strong>: ' + str(total_case[i]) + '<br>'),color='red',fill_color='red' ).add_to(myMap)
     
     # Generate map
     myMap.save('templates/map.html')
